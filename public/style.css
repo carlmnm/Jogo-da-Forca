@@ -1,0 +1,73 @@
+*{
+    box-sizing: border-box;
+}
+
+.forca{
+    width: 100%;
+}
+
+.forca-imgs{
+    width: 400px;
+
+}
+
+.container-jogo{
+
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+.botao-escolher-palavra{
+    width: 200px;
+    height: 60px;
+    background-color: #27AE60;
+
+    color: white;
+    font-family: "Roboto";
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+
+    border-radius: 8px;
+    margin-left: 334px;
+    margin-top: 50px;
+    
+}
+
+.tecladoJogo{
+    display: flex;
+    width: 664px;
+    height: 91px;
+    
+    flex-wrap: wrap;
+    margin-left: 20%;
+    margin-top: 70px;
+    
+}
+
+.tecla{
+    display: flex;
+    height: 40px;
+    width: 40px;
+    background-color: #9FAAB5;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 16px;
+    color: #798a9f;
+
+    border: 1px solid #7aa7c7;
+    border-radius: 3px;
+
+    margin-right: 11px;
+    margin-bottom: 11px;
+
+    
+
+    /*margin-right: 12px;
+    */
+}

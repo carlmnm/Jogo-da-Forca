@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import forca0 from "./assets/img/forca0.png"
+import forca1 from "./assets/img/forca1.png"
+import forca2 from "./assets/img/forca2.png"
+import forca3 from "./assets/img/forca3.png"
+import forca4 from "./assets/img/forca4.png"
+import forca5 from "./assets/img/forca5.png"
+import forca6 from "./assets/img/forca6.png"
+import Jogo from "./components/Jogo"
 
-function App() {
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-jogo">
+    <Jogo/>
+      
     </div>
   );
 }
 
-export default App;
+
