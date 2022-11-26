@@ -16,5 +16,4 @@ export default function Teclado() {
             {alfabeto.map((item) => <Teclinha letra={item}/>  )}
         </div>
     )
-
 }

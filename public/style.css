@@ -65,9 +65,41 @@
 
     margin-right: 11px;
     margin-bottom: 11px;
+}
 
+.input-chute{
+    width: 624px;
     
+    display: flex;
+    justify-content: space-between;
+    margin-left:280px;
+    margin-top: 56px;
+}
 
-    /*margin-right: 12px;
-    */
+.ja-sei{
+    
+    display: flex;
+    align-items: center;
+    
+    font-family: 'Roboto';
+    font-weight: 400;
+    font-size: 20px;
+    color: black;
+}
+
+input{
+    width: 353px;
+    height: 40px;
+    background-color: white;
+    border: 1px solid #cccccc;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 3px;
+}
+
+.botao-chutar{
+    width: 100px;
+    height: 40px;
+    background-color: #e1ecf4;
+    border: 1px solid #7aa7c7;
+    border-radius: 3px;
 }
