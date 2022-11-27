@@ -12,6 +12,7 @@
 }
 
 .container-jogo{
+    position: relative;
 
     display: flex;
     flex-wrap: wrap;
@@ -102,4 +103,15 @@ input{
     background-color: #e1ecf4;
     border: 1px solid #7aa7c7;
     border-radius: 3px;
+}
+
+.palavra-jogo{
+    font-size: 50px;
+    font-family: 'Noto Sans';
+    font-style: normal;
+    font-weight: 700;
+    position: absolute;
+    right: 403px;
+    bottom: 344px;
+
 }
