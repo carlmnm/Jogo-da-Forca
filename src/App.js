@@ -1,20 +1,34 @@
-import forca0 from "./assets/img/forca0.png"
-import forca1 from "./assets/img/forca1.png"
-import forca2 from "./assets/img/forca2.png"
-import forca3 from "./assets/img/forca3.png"
-import forca4 from "./assets/img/forca4.png"
-import forca5 from "./assets/img/forca5.png"
-import forca6 from "./assets/img/forca6.png"
+import React, { useState } from "react"
 import Jogo from "./components/Jogo"
-
+import Letras from "./components/Letras"
+import Chute from "./components/chute"
 
 export default function App() {
+  const [palavraSelecionada, setPalavraSelecionada] = useState("")
+  const [arrayPalavra, setArrayPalavra] = useState([])
+  const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+  const [letraClickada, setLetraClickada] = useState([])
+
   return (
     <div className="container-jogo">
-    <Jogo/>
-      
+      <Jogo
+        palavraSelecionada={palavraSelecionada}
+        setPalavraSelecionada={setPalavraSelecionada}
+        arrayPalavra={arrayPalavra}
+        setArrayPalavra={setArrayPalavra}
+      />
+
+      <Letras
+        alfabeto={alfabeto}
+        letraClickada={letraClickada}
+        setLetraClickada={setLetraClickada}
+      />
+
+      <div className="container-chute">
+        <Chute />
+      </div>
     </div>
-  );
+  )
 }
 
 

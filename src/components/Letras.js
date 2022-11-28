@@ -1,9 +1,16 @@
-export default function Teclado() {
-    const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-    
+
+export default function Letras({alfabeto, letraClickada, setLetraClickada}) {
+    function clickarLetra(clickLetra){
+        
+        if(!letraClickada.includes(clickLetra)){
+            setLetraClickada([...letraClickada, clickLetra])
+        }
+        console.log(letraClickada)
+    }
+
     function Teclinha(props) {
         return (
-            <div className="tecla">
+            <div onClick={() => clickarLetra(props.letra)} className={`${letraClickada.includes(props.letra) ? "clickado" : "nao-clickado"}`} >
                 <p className="teclaComLetra">
                     {props.letra}
                 </p>

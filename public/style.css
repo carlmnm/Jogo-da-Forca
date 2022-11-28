@@ -48,7 +48,7 @@
     
 }
 
-.tecla{
+.clickado{
     display: flex;
     height: 40px;
     width: 40px;
@@ -66,6 +66,27 @@
 
     margin-right: 11px;
     margin-bottom: 11px;
+}
+
+.nao-clickado{
+    display: flex;
+    height: 40px;
+    width: 40px;
+    background-color: #E1ECF4;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Roboto';
+    font-weight: 700;
+    font-size: 16px;
+    color: #39739D;
+
+    border: 1px solid #7aa7c7;
+    border-radius: 3px;
+
+    margin-right: 11px;
+    margin-bottom: 11px;
+
 }
 
 .input-chute{
@@ -111,7 +132,7 @@ input{
     font-style: normal;
     font-weight: 700;
     position: absolute;
-    right: 403px;
-    bottom: 344px;
+    right: 3px;
+    bottom: 44px;
 
 }

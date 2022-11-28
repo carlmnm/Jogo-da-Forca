@@ -1,4 +1,3 @@
-import React, { useState } from "react"
 import forca0 from "../assets/img/forca0.png"
 import forca1 from "../assets/img/forca1.png"
 import forca2 from "../assets/img/forca2.png"
@@ -11,11 +10,7 @@ import Chute from "./chute"
 import palavras from "./palavras"
 let escondida = []
 
-export default function Jogo() {
-    let [palavraSelecionada, setPalavraSelecionada] = useState("")
-    let [arrayPalavra, setArrayPalavra] = useState([])
-    console.log(palavraSelecionada)
-
+export default function Jogo({palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra}) {
     function selecionaPalavra(props) {
         const numeroAleatorio = parseInt(Math.random() * palavras.length)
         const palavraAleatoria = palavras[numeroAleatorio]
@@ -29,7 +24,7 @@ export default function Jogo() {
         for(let i = 0; i < palavraAleatoria.length; i++){
             escondida[i] = '_ '
         }
-        
+
         return (
             <span className="letra">
                 {props.caractere}
@@ -37,6 +32,8 @@ export default function Jogo() {
         )
     }
 
+    console.log(palavraSelecionada)
+    
     return (
         <div className="container-jogo">
             <div className="forca-imgs">
@@ -44,19 +41,11 @@ export default function Jogo() {
             </div>
             <button className="botao-escolher-palavra" onClick={selecionaPalavra} type="button">Escolher Palavra</button>
 
-            <Letras />
-
-            <div className="container-chute">
-                <Chute />
-            </div>
-
             <div className="container-palavra">
                 <span className="palavra-jogo">
                     {escondida}
                 </span>
             </div>
-
         </div>
-
     )
 }
