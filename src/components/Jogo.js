@@ -9,10 +9,11 @@ import Letras from "./Letras"
 import Chute from "./chute"
 import palavras from "./palavras"
 let escondida = []
+let rightWord = []
 let cond = 0
 let letrinha = ""
 
-export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra, letraClickada, rightWord }) {
+export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra, letraClickada,}) {
     function selecionaPalavra(props) {
         const numeroAleatorio = parseInt(Math.random() * palavras.length)
         const palavraAleatoria = palavras[numeroAleatorio]
@@ -65,6 +66,9 @@ export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayP
             <div className="container-palavra">
                 <span className="palavra-jogo">
                     {escondida}
+                </span>
+                <span className="palavra-jogao">
+                    {rightWord}
                 </span>
             </div>
         </div>
