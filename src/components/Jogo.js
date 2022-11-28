@@ -8,21 +8,22 @@ import forca6 from "../assets/img/forca6.png"
 import Letras from "./Letras"
 import Chute from "./chute"
 import palavras from "./palavras"
-let escondida = []
 
 
 
-let cond = 0
+
+let contador = 0
 let letraDescoberta = ""
 
 
-export default function Jogo({ escondida, palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra, letraClickada, }) {
+export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra, letraClickada, }) {
+    let escondida = []
     function selecionaPalavra(props) {
         let numeroAleatorio = parseInt(Math.random() * palavras.length)
         let palavraAleatoria = palavras[numeroAleatorio]
 
-        setPalavraSelecionada(palavraAleatoria)
-        setArrayPalavra(palavraSelecionada.split(''))
+        
+        setArrayPalavra(palavraAleatoria.split(''))
 
         while (escondida.length) {
             escondida.pop()
@@ -31,34 +32,28 @@ export default function Jogo({ escondida, palavraSelecionada, setPalavraSelecion
             escondida[i] = "_ "
         }
 
-
-        //return (
-        // <span className="letra">
-        //  {props.caractere}
-        //</span>
-        //)
     }
 
     for (let i = 0; i < arrayPalavra.length; i++) {
         for (let j = 0; j < letraClickada.length; j++) {
-            if (arrayPalavra[i] == letraClickada[j]) {
-                cond = 1
+            if (arrayPalavra[i] === letraClickada[j]) {
+                contador = 1
                 letraDescoberta = arrayPalavra[i]
                 
             }
         }
-        if (cond == 1) {
+        if (contador === 1) {
             escondida[i] = letraDescoberta
         } else {
             escondida[i] = "_ "
         }
-        cond = 0
+        contador = 0
 
     }
 
 
 
-    console.log(palavraSelecionada)
+    console.log(arrayPalavra)
 
     return (
         <div className="container-jogo">
