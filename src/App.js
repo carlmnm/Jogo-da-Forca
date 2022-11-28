@@ -9,6 +9,7 @@ export default function App() {
   const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   const [letraClickada, setLetraClickada] = useState([])
   let [escondida, setEscondida] = useState([])
+  const [contadorDeInicio, setContadorDeInicio] = useState(0)
 
 
   return (
@@ -21,6 +22,8 @@ export default function App() {
         letraClickada={letraClickada}
         setEscondida={setEscondida}
         escondida={escondida}
+        contadorDeInicio={contadorDeInicio}
+        setContadorDeInicio={setContadorDeInicio}
 
       />
 
@@ -32,12 +35,16 @@ export default function App() {
         setPalavraSelecionada={setPalavraSelecionada}
         arrayPalavra={arrayPalavra}
         setArrayPalavra={setArrayPalavra}
+        contadorDeInicio={contadorDeInicio}
+
 
 
       />
 
       <div className="container-chute">
-        <Chute />
+        <Chute 
+        contadorDeInicio={contadorDeInicio}
+        />
       </div>
     </div>
   )

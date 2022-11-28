@@ -16,11 +16,13 @@ let contador = 0
 let letraDescoberta = ""
 
 
-export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra, letraClickada, }) {
+
+export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra, letraClickada, contadorDeInicio, setContadorDeInicio}) {
     let escondida = []
     function selecionaPalavra(props) {
+        setContadorDeInicio(1)
         let numeroAleatorio = parseInt(Math.random() * palavras.length)
-        let palavraAleatoria = palavras[numeroAleatorio]
+        const palavraAleatoria = palavras[numeroAleatorio]
 
         
         setArrayPalavra(palavraAleatoria.split(''))
@@ -63,7 +65,7 @@ export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayP
             <button data-test="choose-word" className="botao-escolher-palavra" onClick={selecionaPalavra} type="button">Escolher Palavra</button>
 
             <div className="container-palavra">
-                <span data-test="word" className="palavra-jogao">
+                <span data-test="word"  className="palavra-jogo">
                     {escondida}
                 </span>
 

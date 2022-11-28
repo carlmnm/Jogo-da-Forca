@@ -1,5 +1,6 @@
 
-export default function Letras({alfabeto, letraClickada, setLetraClickada, rightWord, palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra}) {
+export default function Letras({alfabeto, letraClickada, setLetraClickada, rightWord, palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra, contadorDeInicio}) {
+    let classe = ""
     function clickarLetra(clickLetra) {
         
 
@@ -9,9 +10,10 @@ export default function Letras({alfabeto, letraClickada, setLetraClickada, right
 
     }
 
+
     function Teclinha(props) {
         return (
-            <div data-test="letter" onClick={() => clickarLetra(props.letra)} className={`${letraClickada.includes(props.letra) ? "clickado" : "nao-clickado"}`} >
+            <div data-test="letter" onClick={() => clickarLetra(props.letra)} className={`${(letraClickada.includes(props.letra))||(contadorDeInicio === 0) ? "clickado" : "nao-clickado"}` } >
                 <p className="teclaComLetra">
                     {props.letra}
                 </p>
