@@ -9,8 +9,10 @@ import Letras from "./Letras"
 import Chute from "./chute"
 import palavras from "./palavras"
 let escondida = []
+let cond = 0
+let letrinha = ""
 
-export default function Jogo({palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra}) {
+export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra, letraClickada, rightWord }) {
     function selecionaPalavra(props) {
         const numeroAleatorio = parseInt(Math.random() * palavras.length)
         const palavraAleatoria = palavras[numeroAleatorio]
@@ -18,12 +20,13 @@ export default function Jogo({palavraSelecionada, setPalavraSelecionada, arrayPa
         setPalavraSelecionada(palavraAleatoria)
         setArrayPalavra(palavraSelecionada.split(''))
 
-        while(escondida.length){
+        while (escondida.length) {
             escondida.pop()
         }
-        for(let i = 0; i < palavraAleatoria.length; i++){
+        for (let i = 0; i < palavraAleatoria.length; i++) {
             escondida[i] = '_ '
         }
+
 
         return (
             <span className="letra">
@@ -32,8 +35,26 @@ export default function Jogo({palavraSelecionada, setPalavraSelecionada, arrayPa
         )
     }
 
+    for(let i = 0; i < arrayPalavra.length; i++){
+        for(let j = 0; j < letraClickada.length; j++){
+            if(arrayPalavra[i] == letraClickada[j]){
+                cond = 1
+                letrinha = arrayPalavra[i]
+            }
+        }
+        if(cond == 1){
+            rightWord[i] = arrayPalavra[i]
+        } else {
+            rightWord[i] = "_ "
+        }
+        cond = 0
+
+    }
+
+
+
     console.log(palavraSelecionada)
-    
+
     return (
         <div className="container-jogo">
             <div className="forca-imgs">

@@ -1,11 +1,12 @@
 
-export default function Letras({alfabeto, letraClickada, setLetraClickada}) {
-    function clickarLetra(clickLetra){
-        
-        if(!letraClickada.includes(clickLetra)){
+export default function Letras({ alfabeto, letraClickada, setLetraClickada, rightWord, palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra}) {
+    function clickarLetra(clickLetra) {
+        let letraCerta = ""
+
+        if (!letraClickada.includes(clickLetra)) {
             setLetraClickada([...letraClickada, clickLetra])
         }
-        console.log(letraClickada)
+
     }
 
     function Teclinha(props) {
@@ -20,7 +21,7 @@ export default function Letras({alfabeto, letraClickada, setLetraClickada}) {
 
     return (
         <div className="tecladoJogo">
-            {alfabeto.map((item) => <Teclinha letra={item}/>  )}
+            {alfabeto.map((item) => <Teclinha letra={item} />)}
         </div>
     )
 }
