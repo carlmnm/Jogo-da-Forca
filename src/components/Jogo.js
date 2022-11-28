@@ -17,7 +17,7 @@ let letraDescoberta = ""
 
 
 
-export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra, letraClickada, contadorDeInicio, setContadorDeInicio}) {
+export default function Jogo({setErro, erro, palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra, letraClickada, contadorDeInicio, setContadorDeInicio}) {
     let escondida = []
     function selecionaPalavra(props) {
         setContadorDeInicio(1)
@@ -53,6 +53,12 @@ export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayP
 
     }
 
+    for(let k = 0; k < arrayPalavra.length; k++){
+        if(letraClickada === arrayPalavra[k]){
+            setErro(erro + 1)
+        }
+    }
+
 
 
     console.log(arrayPalavra)
@@ -60,12 +66,12 @@ export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayP
     return (
         <div className="container-jogo">
             <div className="forca-imgs">
-                <img data-test="game-image" src={forca0} alt="imagem da forca" className="forca" />
+                <img data-test="game-image" src={`../assets/img/forca${erro}.png`} alt="imagem da forca" className="forca" />
             </div>
             <button data-test="choose-word" className="botao-escolher-palavra" onClick={selecionaPalavra} type="button">Escolher Palavra</button>
 
             <div className="container-palavra">
-                <span data-test="word"  className="palavra-jogo">
+                <span data-test="word" className="palavra-jogo">
                     {escondida}
                 </span>
 

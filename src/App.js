@@ -10,7 +10,7 @@ export default function App() {
   const [letraClickada, setLetraClickada] = useState([])
   let [escondida, setEscondida] = useState([])
   const [contadorDeInicio, setContadorDeInicio] = useState(0)
-
+  const [erro, setErro] = useState(0)
 
   return (
     <div className="container-jogo">
@@ -24,7 +24,8 @@ export default function App() {
         escondida={escondida}
         contadorDeInicio={contadorDeInicio}
         setContadorDeInicio={setContadorDeInicio}
-
+        erro={erro}
+        setErro={setErro}
       />
 
       <Letras
