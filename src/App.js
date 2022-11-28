@@ -8,7 +8,8 @@ export default function App() {
   const [arrayPalavra, setArrayPalavra] = useState([])
   const alfabeto = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
   const [letraClickada, setLetraClickada] = useState([])
-  let rightWord = []
+  let escondida = []
+
 
   return (
     <div className="container-jogo">
@@ -18,7 +19,8 @@ export default function App() {
         arrayPalavra={arrayPalavra}
         setArrayPalavra={setArrayPalavra}
         letraClickada={letraClickada}
-        rightWord={rightWord}
+        escondida={escondida}
+
       />
 
       <Letras
@@ -29,7 +31,8 @@ export default function App() {
         setPalavraSelecionada={setPalavraSelecionada}
         arrayPalavra={arrayPalavra}
         setArrayPalavra={setArrayPalavra}
-        rightWord={rightWord}
+
+
       />
 
       <div className="container-chute">

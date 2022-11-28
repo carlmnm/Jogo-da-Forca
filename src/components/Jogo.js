@@ -9,14 +9,17 @@ import Letras from "./Letras"
 import Chute from "./chute"
 import palavras from "./palavras"
 let escondida = []
-let rightWord = []
-let cond = 0
-let letrinha = ""
 
-export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra, letraClickada,}) {
+
+
+let cond = 0
+let letraDescoberta = ""
+
+
+export default function Jogo({ escondida, palavraSelecionada, setPalavraSelecionada, arrayPalavra, setArrayPalavra, letraClickada, }) {
     function selecionaPalavra(props) {
-        const numeroAleatorio = parseInt(Math.random() * palavras.length)
-        const palavraAleatoria = palavras[numeroAleatorio]
+        let numeroAleatorio = parseInt(Math.random() * palavras.length)
+        let palavraAleatoria = palavras[numeroAleatorio]
 
         setPalavraSelecionada(palavraAleatoria)
         setArrayPalavra(palavraSelecionada.split(''))
@@ -25,28 +28,29 @@ export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayP
             escondida.pop()
         }
         for (let i = 0; i < palavraAleatoria.length; i++) {
-            escondida[i] = '_ '
+            escondida[i] = "_ "
         }
 
 
-        return (
-            <span className="letra">
-                {props.caractere}
-            </span>
-        )
+        //return (
+        // <span className="letra">
+        //  {props.caractere}
+        //</span>
+        //)
     }
 
-    for(let i = 0; i < arrayPalavra.length; i++){
-        for(let j = 0; j < letraClickada.length; j++){
-            if(arrayPalavra[i] == letraClickada[j]){
+    for (let i = 0; i < arrayPalavra.length; i++) {
+        for (let j = 0; j < letraClickada.length; j++) {
+            if (arrayPalavra[i] == letraClickada[j]) {
                 cond = 1
-                letrinha = arrayPalavra[i]
+                letraDescoberta = arrayPalavra[i]
+                
             }
         }
-        if(cond == 1){
-            rightWord[i] = arrayPalavra[i]
+        if (cond == 1) {
+            escondida[i] = letraDescoberta
         } else {
-            rightWord[i] = "_ "
+            escondida[i] = "_ "
         }
         cond = 0
 
@@ -59,17 +63,16 @@ export default function Jogo({ palavraSelecionada, setPalavraSelecionada, arrayP
     return (
         <div className="container-jogo">
             <div className="forca-imgs">
-                <img src={forca0} alt="imagem da forca" className="forca" />
+                <img data-test="game-image" src={forca0} alt="imagem da forca" className="forca" />
             </div>
-            <button className="botao-escolher-palavra" onClick={selecionaPalavra} type="button">Escolher Palavra</button>
+            <button data-test="choose-word" className="botao-escolher-palavra" onClick={selecionaPalavra} type="button">Escolher Palavra</button>
 
             <div className="container-palavra">
-                <span className="palavra-jogo">
+                <span data-test="word" className="palavra-jogao">
                     {escondida}
                 </span>
-                <span className="palavra-jogao">
-                    {rightWord}
-                </span>
+
+
             </div>
         </div>
     )
